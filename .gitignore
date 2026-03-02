@@ -1,9 +1,11 @@
 .DS_Store
 
 # External skill repos (cloned locally, not tracked)
+cloudflare/
 composio/
 wordpress/
 
 # Symlinks to external skills (recreated by sync-external.sh)
+cloudflare-*
 composio-*
 wordpress-*

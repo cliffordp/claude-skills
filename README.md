@@ -12,7 +12,9 @@ git clone https://github.com/cliffordp/claude-skills ~/.claude/_skills
 ln -s _skills ~/.claude/skills
 
 # 3. Clone external skill repos
+git clone https://github.com/cloudflare/skills ~/.claude/_skills/cloudflare
 git clone https://github.com/ComposioHQ/awesome-claude-skills ~/.claude/_skills/composio
+git clone https://github.com/WordPress/agent-skills ~/.claude/_skills/wordpress
 
 # 4. Create root-level symlinks for external skills
 bash ~/.claude/_skills/sync-external.sh
@@ -22,7 +24,9 @@ bash ~/.claude/_skills/sync-external.sh
 
 ```bash
 # Update all external repos and re-sync symlinks
+git -C ~/.claude/_skills/cloudflare pull
 git -C ~/.claude/_skills/composio pull
+git -C ~/.claude/_skills/wordpress pull
 bash ~/.claude/_skills/sync-external.sh
 
 # Or update a specific repo
@@ -65,6 +69,7 @@ External repo directories are git-ignored; the symlinks themselves are committed
 
 | Directory | Source | Skills |
 |-----------|--------|--------|
+| `cloudflare/` | https://github.com/cloudflare/skills | 9 |
 | `composio/` | https://github.com/ComposioHQ/awesome-claude-skills | 28 |
 | `wordpress/` | https://github.com/WordPress/agent-skills | 13 |
 
