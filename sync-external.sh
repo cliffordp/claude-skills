@@ -20,17 +20,18 @@ cd "$SCRIPT_DIR"
 total=0
 
 # Find the skills root within a repo dir (handles flat and nested structures)
+# Prefers nested repo/skills/ when present (some repos have both)
 find_skills_root() {
   local repo_dir="$1"
+
+  # Nested: repo/skills/skill-name/SKILL.md (check first — takes priority)
+  for sub in "$repo_dir/skills"/*/; do
+    [ -f "${sub}SKILL.md" ] && echo "$repo_dir/skills" && return
+  done
 
   # Flat: repo/skill-name/SKILL.md
   for sub in "$repo_dir"/*/; do
     [ -f "${sub}SKILL.md" ] && echo "$repo_dir" && return
-  done
-
-  # Nested: repo/skills/skill-name/SKILL.md
-  for sub in "$repo_dir/skills"/*/; do
-    [ -f "${sub}SKILL.md" ] && echo "$repo_dir/skills" && return
   done
 }
 

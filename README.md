@@ -12,8 +12,11 @@ git clone https://github.com/cliffordp/claude-skills ~/.claude/_skills
 ln -s _skills ~/.claude/skills
 
 # 3. Clone external skill repos
+git clone https://github.com/AgriciDaniel/claude-ads ~/.claude/_skills/claude-ads
 git clone https://github.com/cloudflare/skills ~/.claude/_skills/cloudflare
 git clone https://github.com/ComposioHQ/awesome-claude-skills ~/.claude/_skills/composio
+git clone https://github.com/ognjengt/founder-skills ~/.claude/_skills/founder-skills
+git clone https://github.com/coreyhaines31/marketingskills ~/.claude/_skills/marketingskills
 git clone https://github.com/WordPress/agent-skills ~/.claude/_skills/wordpress
 
 # 4. Create root-level symlinks for external skills
@@ -24,8 +27,11 @@ bash ~/.claude/_skills/sync-external.sh
 
 ```bash
 # Update all external repos and re-sync symlinks
+git -C ~/.claude/_skills/claude-ads pull
 git -C ~/.claude/_skills/cloudflare pull
 git -C ~/.claude/_skills/composio pull
+git -C ~/.claude/_skills/founder-skills pull
+git -C ~/.claude/_skills/marketingskills pull
 git -C ~/.claude/_skills/wordpress pull
 bash ~/.claude/_skills/sync-external.sh
 
@@ -69,9 +75,25 @@ External repo directories are git-ignored; the symlinks themselves are committed
 
 | Directory | Source | Skills |
 |-----------|--------|--------|
+| `claude-ads/` | https://github.com/AgriciDaniel/claude-ads | 12 |
 | `cloudflare/` | https://github.com/cloudflare/skills | 9 |
 | `composio/` | https://github.com/ComposioHQ/awesome-claude-skills | 28 |
+| `founder-skills/` | https://github.com/ognjengt/founder-skills | 15 |
+| `marketingskills/` | https://github.com/coreyhaines31/marketingskills | 32 |
 | `wordpress/` | https://github.com/WordPress/agent-skills | 13 |
+
+## Evaluated, Not Installed
+
+Repos considered but skipped — reasons documented to avoid re-evaluating.
+
+| Repo | Reason Skipped |
+|------|----------------|
+| [AgriciDaniel/claude-seo](https://github.com/AgriciDaniel/claude-seo) | 8/12 skills overlap with existing SEO pack |
+| [AgriciDaniel/claude-blog](https://github.com/AgriciDaniel/claude-blog) | Significant overlap with SEO skills; low stars (104) |
+| [BrianRWagner/ai-marketing-claude-code-skills](https://github.com/BrianRWagner/ai-marketing-claude-code-skills) | Mixed: good gems (voice-extractor, de-ai-ify) buried under lifestyle fluff (plan-my-day, daily-briefing-builder) |
+| [fvadicamo/dev-agent-skills](https://github.com/fvadicamo/dev-agent-skills) | Git/PR skills redundant with Claude Code built-ins; low stars (44) |
+| [jthack/ffuf_claude_skill](https://github.com/jthack/ffuf_claude_skill) | Security/pentesting tool (web fuzzing); not relevant |
+| [Shpigford/skills](https://github.com/Shpigford/skills) | Rails-specific (new-rails-project, conductor-setup); low stars (68) |
 
 ## Notes
 

@@ -1,11 +1,17 @@
 .DS_Store
 
 # External skill repos (cloned locally, not tracked)
+claude-ads/
 cloudflare/
 composio/
+founder-skills/
+marketingskills/
 wordpress/
 
 # Symlinks to external skills (recreated by sync-external.sh)
+claude-ads-*
 cloudflare-*
 composio-*
+founder-skills-*
+marketingskills-*
 wordpress-*
