@@ -66,6 +66,7 @@ External repo directories are git-ignored; the symlinks themselves are committed
 | Directory | Source | Skills |
 |-----------|--------|--------|
 | `composio/` | https://github.com/ComposioHQ/awesome-claude-skills | 28 |
+| `wordpress/` | https://github.com/WordPress/agent-skills | 13 |
 
 ## Notes
 

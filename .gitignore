@@ -2,6 +2,8 @@
 
 # External skill repos (cloned locally, not tracked)
 composio/
+wordpress/
 
 # Symlinks to external skills (recreated by sync-external.sh)
 composio-*
+wordpress-*

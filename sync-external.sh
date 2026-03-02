@@ -1,15 +1,16 @@
 #!/bin/bash
 # Sync external skill repos into root-level symlinks for Claude Code discovery.
 #
-# Any subdirectory that contains skill folders (subdirs with SKILL.md) is treated
-# as an external repo and gets root-level symlinks prefixed with its name.
+# Handles two repo structures automatically:
+#   Flat:   repo/skill-name/SKILL.md        (e.g. composio)
+#   Nested: repo/skills/skill-name/SKILL.md (e.g. wordpress, anthropics)
 #
 # Usage:
 #   ./sync-external.sh         — create/update all symlinks
-#   git -C composio pull       — update a repo, then re-run this
+#   git -C <name> pull         — update a repo, then re-run this
 #
 # To add a new external repo:
-#   git clone <url> <name>     — e.g. git clone <url> composio
+#   git clone <url> <name>     — e.g. git clone <url> wordpress
 #   ./sync-external.sh         — symlinks created automatically
 
 set -e
@@ -18,24 +19,35 @@ cd "$SCRIPT_DIR"
 
 total=0
 
+# Find the skills root within a repo dir (handles flat and nested structures)
+find_skills_root() {
+  local repo_dir="$1"
+
+  # Flat: repo/skill-name/SKILL.md
+  for sub in "$repo_dir"/*/; do
+    [ -f "${sub}SKILL.md" ] && echo "$repo_dir" && return
+  done
+
+  # Nested: repo/skills/skill-name/SKILL.md
+  for sub in "$repo_dir/skills"/*/; do
+    [ -f "${sub}SKILL.md" ] && echo "$repo_dir/skills" && return
+  done
+}
+
 for repo_dir in */; do
   repo_dir="${repo_dir%/}"
 
   # Skip if it's a skill itself (has SKILL.md directly inside)
   [ -f "$repo_dir/SKILL.md" ] && continue
 
-  # Skip if it contains no skill subdirs
-  has_skills=false
-  for sub in "$repo_dir"/*/; do
-    [ -f "${sub}SKILL.md" ] && has_skills=true && break
-  done
-  $has_skills || continue
+  skills_root=$(find_skills_root "$repo_dir")
+  [ -z "$skills_root" ] && continue
 
   count=0
-  for skill_dir in "$repo_dir"/*/; do
+  for skill_dir in "$skills_root"/*/; do
     [ -f "${skill_dir}SKILL.md" ] || continue
     skill=$(basename "$skill_dir")
-    ln -sf "${repo_dir}/${skill}" "${repo_dir}-${skill}"
+    ln -sf "${skill_dir}" "${repo_dir}-${skill}"
     count=$((count + 1))
   done
 
