@@ -2,6 +2,7 @@
 
 # External skill repos (cloned locally, not tracked)
 claude-ads/
+claude-seo/
 cloudflare/
 composio/
 founder-skills/
@@ -10,6 +11,7 @@ wordpress/
 
 # Symlinks to external skills (recreated by sync-external.sh)
 claude-ads-*
+claude-seo-*
 cloudflare-*
 composio-*
 founder-skills-*

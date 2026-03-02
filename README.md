@@ -13,6 +13,7 @@ ln -s _skills ~/.claude/skills
 
 # 3. Clone external skill repos
 git clone https://github.com/AgriciDaniel/claude-ads ~/.claude/_skills/claude-ads
+git clone https://github.com/AgriciDaniel/claude-seo ~/.claude/_skills/claude-seo
 git clone https://github.com/cloudflare/skills ~/.claude/_skills/cloudflare
 git clone https://github.com/ComposioHQ/awesome-claude-skills ~/.claude/_skills/composio
 git clone https://github.com/ognjengt/founder-skills ~/.claude/_skills/founder-skills
@@ -28,6 +29,7 @@ bash ~/.claude/_skills/sync-external.sh
 ```bash
 # Update all external repos and re-sync symlinks
 git -C ~/.claude/_skills/claude-ads pull
+git -C ~/.claude/_skills/claude-seo pull
 git -C ~/.claude/_skills/cloudflare pull
 git -C ~/.claude/_skills/composio pull
 git -C ~/.claude/_skills/founder-skills pull
@@ -76,6 +78,7 @@ External repo directories are git-ignored; the symlinks themselves are committed
 | Directory | Source | Skills |
 |-----------|--------|--------|
 | `claude-ads/` | https://github.com/AgriciDaniel/claude-ads | 12 |
+| `claude-seo/` | https://github.com/AgriciDaniel/claude-seo | 12 |
 | `cloudflare/` | https://github.com/cloudflare/skills | 9 |
 | `composio/` | https://github.com/ComposioHQ/awesome-claude-skills | 28 |
 | `founder-skills/` | https://github.com/ognjengt/founder-skills | 15 |
@@ -88,7 +91,7 @@ Repos considered but skipped — reasons documented to avoid re-evaluating.
 
 | Repo | Reason Skipped |
 |------|----------------|
-| [AgriciDaniel/claude-seo](https://github.com/AgriciDaniel/claude-seo) | 8/12 skills overlap with existing SEO pack |
+| ~~[AgriciDaniel/claude-seo](https://github.com/AgriciDaniel/claude-seo)~~ | Installed — complements existing SEO pack |
 | [AgriciDaniel/claude-blog](https://github.com/AgriciDaniel/claude-blog) | Significant overlap with SEO skills; low stars (104) |
 | [BrianRWagner/ai-marketing-claude-code-skills](https://github.com/BrianRWagner/ai-marketing-claude-code-skills) | Mixed: good gems (voice-extractor, de-ai-ify) buried under lifestyle fluff (plan-my-day, daily-briefing-builder) |
 | [fvadicamo/dev-agent-skills](https://github.com/fvadicamo/dev-agent-skills) | Git/PR skills redundant with Claude Code built-ins; low stars (44) |
