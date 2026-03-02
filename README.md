@@ -2,6 +2,44 @@
 
 User-level skills for Claude Code, synced via GitHub.
 
+## Setup (new machine)
+
+```bash
+# 1. Clone this repo
+git clone https://github.com/cliffordp/claude-skills ~/.claude/_skills
+
+# 2. Symlink so Claude Code discovers skills
+ln -s _skills ~/.claude/skills
+
+# 3. Clone external skill repos
+git clone https://github.com/ComposioHQ/awesome-claude-skills ~/.claude/_skills/composio
+
+# 4. Create root-level symlinks for external skills
+bash ~/.claude/_skills/sync-external.sh
+```
+
+## Updating external skill repos
+
+```bash
+# Update all external repos and re-sync symlinks
+git -C ~/.claude/_skills/composio pull
+bash ~/.claude/_skills/sync-external.sh
+
+# Or update a specific repo
+git -C ~/.claude/_skills/<name> pull && bash ~/.claude/_skills/sync-external.sh
+```
+
+## Adding a new external skill repo
+
+```bash
+git clone <url> ~/.claude/_skills/<name>
+bash ~/.claude/_skills/sync-external.sh
+```
+
+Then add a row to the External Skill Repos table below and update `.gitignore`.
+
+---
+
 ## SEO / LLM Skills Pack
 
 **Source:** Navneet Kaushal (LinkedIn) — [The SEO/LLM Skills Pack for Claude](https://www.notion.so/cliffp/The-SEO-LLM-Skills-Pack-for-Claude-314de8642be880209feaebf4d2c387b9)
@@ -21,17 +59,16 @@ User-level skills for Claude Code, synced via GitHub.
 
 ## External Skill Repos
 
-External repos are cloned as subdirectories and symlinked to root level for discovery.
-Run `./sync-external.sh` after cloning or updating any external repo.
+External repos are cloned as subdirectories and symlinked to root level for Claude Code discovery.
+The `sync-external.sh` script auto-detects any subdirectory containing skills and creates prefixed symlinks.
+External repo directories are git-ignored; the symlinks themselves are committed.
 
-| Directory | Source | Update |
+| Directory | Source | Skills |
 |-----------|--------|--------|
-| `composio/` | https://github.com/ComposioHQ/awesome-claude-skills | `git -C composio pull` |
-
-To add another: `git clone <url> <name>` then `./sync-external.sh`
+| `composio/` | https://github.com/ComposioHQ/awesome-claude-skills | 28 |
 
 ## Notes
 
-- Skills must live at root level as `<skill-name>/SKILL.md` for Claude Code to discover them
+- Skills must live at root as `<skill-name>/SKILL.md` for Claude Code to discover them
+- Only skill descriptions (not full content) load per session — installing all skills from a library is fine
 - Symlinked: `~/.claude/skills` → `~/.claude/_skills`
-- External repo directories are git-ignored; symlinks are committed
