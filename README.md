@@ -19,7 +19,19 @@ User-level skills for Claude Code, synced via GitHub.
 | `seo-content-brief-writer` | Generates writer-ready content briefs |
 | `seo-ai-search-visibility-checker` | Scores AEO readiness / machine readability |
 
+## External Skill Repos
+
+External repos are cloned as subdirectories and symlinked to root level for discovery.
+Run `./sync-external.sh` after cloning or updating any external repo.
+
+| Directory | Source | Update |
+|-----------|--------|--------|
+| `composio/` | https://github.com/ComposioHQ/awesome-claude-skills | `git -C composio pull` |
+
+To add another: `git clone <url> <name>` then `./sync-external.sh`
+
 ## Notes
 
 - Skills must live at root level as `<skill-name>/SKILL.md` for Claude Code to discover them
 - Symlinked: `~/.claude/skills` → `~/.claude/_skills`
+- External repo directories are git-ignored; symlinks are committed

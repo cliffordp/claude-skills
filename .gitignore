@@ -1,1 +1,4 @@
 .DS_Store
+
+# External skill repos (cloned locally, not tracked)
+composio/
