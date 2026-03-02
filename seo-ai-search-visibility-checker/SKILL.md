@@ -1,5 +1,5 @@
 ---
-name: ai-search-visibility-checker
+name: seo-ai-search-visibility-checker
 description: Check how well content is positioned to appear in AI-generated answers from ChatGPT, Perplexity, Claude, and Google AI Overviews. Use to audit AEO readiness of high-value pages.
 ---
 

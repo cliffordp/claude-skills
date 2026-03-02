@@ -1,5 +1,5 @@
 ---
-name: internal-linking-strategist
+name: seo-internal-linking-strategist
 description: Analyze site structure and recommend internal linking improvements for topical authority. Uses Hub and Spoke model. Use when planning site architecture or optimizing content clusters.
 ---
 

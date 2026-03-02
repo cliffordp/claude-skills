@@ -1,5 +1,5 @@
 ---
-name: gbp-post-generator
+name: seo-gbp-post-generator
 description: Generate optimized Google Business Profile posts for local SEO. Creates 3 variations with geo-modifiers and CTAs. Use for weekly GBP posting and local SEO maintenance.
 ---
 

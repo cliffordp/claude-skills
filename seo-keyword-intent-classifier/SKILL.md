@@ -1,5 +1,5 @@
 ---
-name: keyword-intent-classifier
+name: seo-keyword-intent-classifier
 description: Classify keywords by search intent, buyer journey stage, and AI answer risk. Use during keyword research to prioritize content that drives clicks vs. keywords at risk of zero-click AI answers.
 ---
 

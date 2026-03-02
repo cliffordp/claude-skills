@@ -1,5 +1,5 @@
 ---
-name: aeo-content-optimizer
+name: seo-aeo-content-optimizer
 description: Restructure content to rank in AI-generated answers from ChatGPT, Perplexity, Claude, and Google AI Overviews. Use when optimizing existing content for Answer Engine Optimization.
 ---
 

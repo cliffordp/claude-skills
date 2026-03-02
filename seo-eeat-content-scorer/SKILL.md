@@ -1,5 +1,5 @@
 ---
-name: eeat-content-scorer
+name: seo-eeat-content-scorer
 description: Score content against Google E-E-A-T quality guidelines (Experience, Expertise, Authoritativeness, Trustworthiness). Use as a pre-publish quality gate or content audit tool.
 ---
 

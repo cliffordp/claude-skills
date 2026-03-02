@@ -1,5 +1,5 @@
 ---
-name: schema-markup-generator
+name: seo-schema-markup-generator
 description: Generate valid JSON-LD structured data for any page type. Supports Article, Product, FAQ, LocalBusiness, HowTo, and more. Use when adding schema markup to improve rich results.
 ---
 

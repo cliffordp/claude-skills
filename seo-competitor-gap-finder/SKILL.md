@@ -1,5 +1,5 @@
 ---
-name: competitor-gap-finder
+name: seo-competitor-gap-finder
 description: Compare your content against a competitor to find semantic gaps, missing entities, and uncovered sub-topics. Use when a competitor outranks you or when planning content refreshes.
 ---
 

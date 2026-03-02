@@ -9,15 +9,15 @@ User-level skills for Claude Code, synced via GitHub.
 | Skill | Description |
 |-------|-------------|
 | `seo-site-auditor` | Comprehensive SEO audit with prioritized action table |
-| `aeo-content-optimizer` | Restructures content for AI-generated answers |
-| `schema-markup-generator` | Generates valid JSON-LD structured data |
-| `eeat-content-scorer` | Scores content against Google E-E-A-T guidelines |
-| `keyword-intent-classifier` | Classifies keywords by intent, journey stage, AI risk |
-| `competitor-gap-finder` | Finds semantic gaps vs. competitor content |
-| `gbp-post-generator` | Creates Google Business Profile posts |
-| `internal-linking-strategist` | Maps Hub & Spoke internal linking strategy |
+| `seo-aeo-content-optimizer` | Restructures content for AI-generated answers |
+| `seo-schema-markup-generator` | Generates valid JSON-LD structured data |
+| `seo-eeat-content-scorer` | Scores content against Google E-E-A-T guidelines |
+| `seo-keyword-intent-classifier` | Classifies keywords by intent, journey stage, AI risk |
+| `seo-competitor-gap-finder` | Finds semantic gaps vs. competitor content |
+| `seo-gbp-post-generator` | Creates Google Business Profile posts |
+| `seo-internal-linking-strategist` | Maps Hub & Spoke internal linking strategy |
 | `seo-content-brief-writer` | Generates writer-ready content briefs |
-| `ai-search-visibility-checker` | Scores AEO readiness / machine readability |
+| `seo-ai-search-visibility-checker` | Scores AEO readiness / machine readability |
 
 ## Notes
 
