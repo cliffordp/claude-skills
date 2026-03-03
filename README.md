@@ -69,6 +69,25 @@ Then add a row to the External Skill Repos table below and update `.gitignore`.
 | `seo-content-brief-writer` | Generates writer-ready content briefs |
 | `seo-ai-search-visibility-checker` | Scores AEO readiness / machine readability |
 
+## Competitor SWOT & Content Brief
+
+**Source:** LinkedIn post — reverse-engineer SERP competitors to build consensus-based content briefs in 10 minutes
+
+| Skill | Description |
+|-------|-------------|
+| `seo-competitor-swot` | Fetches up to 5 competitor URLs, builds entity map, topic map, per-page S&W, 5 missing FAQs, missing asset recommendations, and writer-ready brief with executive summary |
+
+## Navneet 100-Day AI SEO Plan — Extracted Skills
+
+**Source:** Navneet Kaushal — [100 Day AI SEO Domination Plan (LinkedIn)](https://www.linkedin.com/feed/update/urn:li:activity:7429740222533488640/) + PDF checklist
+
+| Skill | Description |
+|-------|-------------|
+| `seo-gsc-analyst` | Analyses pasted GSC CSV data for striking distance keywords (pos 11–20), decaying pages (>20% MoM drop), and cannibalization — outputs a prioritised hit list |
+| `seo-hub-spoke-builder` | Builds a full topical authority cluster: hub page definition + 10 spoke articles across distinct intents, with H2s and internal linking plan |
+| `seo-digital-pr-pitch` | Drafts 3 journalist pitch variations for link bait assets; also handles HARO/Qwoted fast-response mode |
+| `seo-blog-to-video-script` | Converts a blog post URL or text into a 60s YouTube Short/TikTok script (Visual\|Audio table) + TL;DR summary box for GEO |
+
 ## External Skill Repos
 
 External repos are cloned as subdirectories and symlinked to root level for Claude Code discovery.
