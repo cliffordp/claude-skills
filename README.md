@@ -71,7 +71,7 @@ Then add a row to the External Skill Repos table below and update `.gitignore`.
 
 ## Competitor SWOT & Content Brief
 
-**Source:** LinkedIn post — reverse-engineer SERP competitors to build consensus-based content briefs in 10 minutes
+**Source:** Charles Floate — [LinkedIn post](https://www.linkedin.com/feed/update/urn:li:activity:7433889125281488896/) — reverse-engineer SERP competitors to build consensus-based content briefs in 10 minutes
 
 | Skill | Description |
 |-------|-------------|
@@ -110,7 +110,6 @@ Repos considered but skipped — reasons documented to avoid re-evaluating.
 
 | Repo | Reason Skipped |
 |------|----------------|
-| ~~[AgriciDaniel/claude-seo](https://github.com/AgriciDaniel/claude-seo)~~ | Installed — complements existing SEO pack |
 | [AgriciDaniel/claude-blog](https://github.com/AgriciDaniel/claude-blog) | Significant overlap with SEO skills; low stars (104) |
 | [BrianRWagner/ai-marketing-claude-code-skills](https://github.com/BrianRWagner/ai-marketing-claude-code-skills) | Mixed: good gems (voice-extractor, de-ai-ify) buried under lifestyle fluff (plan-my-day, daily-briefing-builder) |
 | [fvadicamo/dev-agent-skills](https://github.com/fvadicamo/dev-agent-skills) | Git/PR skills redundant with Claude Code built-ins; low stars (44) |
@@ -121,4 +120,4 @@ Repos considered but skipped — reasons documented to avoid re-evaluating.
 
 - Skills must live at root as `<skill-name>/SKILL.md` for Claude Code to discover them
 - Only skill descriptions (not full content) load per session — installing all skills from a library is fine
-- Symlinked: `~/.claude/skills` → `~/.claude/_skills`
+- Symlinked: `~/.claude/skills` (Claude's default) → `~/.claude/_skills` (our managed location)
