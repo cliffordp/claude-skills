@@ -1,58 +1,63 @@
 # Claude Skills
 
-User-level skills for Claude Code, synced via GitHub.
+A curated collection of AI agent skills using the [`SKILL.md` format](https://docs.anthropic.com/en/docs/claude-code/skills).
 
-## Setup (new machine)
+## Quick Start
 
 ```bash
-# 1. Clone this repo
-git clone https://github.com/cliffordp/claude-skills ~/.claude/_skills
-
-# 2. Symlink so Claude Code discovers skills
-ln -s _skills ~/.claude/skills
-
-# 3. Clone external skill repos
-git clone https://github.com/AgriciDaniel/claude-ads ~/.claude/_skills/claude-ads
-git clone https://github.com/AgriciDaniel/claude-seo ~/.claude/_skills/claude-seo
-git clone https://github.com/cloudflare/skills ~/.claude/_skills/cloudflare
-git clone https://github.com/ComposioHQ/awesome-claude-skills ~/.claude/_skills/composio
-git clone https://github.com/ognjengt/founder-skills ~/.claude/_skills/founder-skills
-git clone https://github.com/coreyhaines31/marketingskills ~/.claude/_skills/marketingskills
-git clone https://github.com/WordPress/agent-skills ~/.claude/_skills/wordpress
-
-# 4. Create root-level symlinks for external skills
-bash ~/.claude/_skills/sync-external.sh
+cd ~/.claude/skills/
+git clone https://github.com/cliffordp/claude-skills
 ```
 
-## Updating external skill repos
+That's it — Claude discovers them automatically on your next session.
+
+> **Using multiple IDEs?** If you use [Agnostic AI Agent Sync](https://github.com/cliffordp/agnostic-ai-agent-sync), clone into your Hub's `skills/` folder instead — it'll automatically be available in every IDE that supports the `SKILL.md` format (Cursor, Windsurf, Qoder, Codex, Antigravity, etc.).
+
+## Installing External Skill Repos
+
+Clone any of the repos below into the same parent directory:
 
 ```bash
-# Update all external repos and re-sync symlinks
-git -C ~/.claude/_skills/claude-ads pull
-git -C ~/.claude/_skills/claude-seo pull
-git -C ~/.claude/_skills/cloudflare pull
-git -C ~/.claude/_skills/composio pull
-git -C ~/.claude/_skills/founder-skills pull
-git -C ~/.claude/_skills/marketingskills pull
-git -C ~/.claude/_skills/wordpress pull
-bash ~/.claude/_skills/sync-external.sh
+# cd into your IDE's skills directory (e.g. ~/.claude/skills/)
 
-# Or update a specific repo
-git -C ~/.claude/_skills/<name> pull && bash ~/.claude/_skills/sync-external.sh
+git clone https://github.com/AgriciDaniel/claude-ads
+git clone https://github.com/AgriciDaniel/claude-seo
+git clone https://github.com/cloudflare/skills cloudflare
+git clone https://github.com/ComposioHQ/awesome-claude-skills composio
+git clone https://github.com/ognjengt/founder-skills
+git clone https://github.com/coreyhaines31/marketingskills
+git clone https://github.com/WordPress/agent-skills wordpress
 ```
 
-## Adding a new external skill repo
+### Updating external skill repos
 
 ```bash
-git clone <url> ~/.claude/_skills/<name>
-bash ~/.claude/_skills/sync-external.sh
+# Update all
+git -C claude-ads pull
+git -C claude-seo pull
+git -C cloudflare pull
+git -C composio pull
+git -C founder-skills pull
+git -C marketingskills pull
+git -C wordpress pull
+
+# Or update one
+git -C <name> pull
+```
+
+### Adding a new external skill repo
+
+```bash
+git clone <url> <name>
 ```
 
 Then add a row to the External Skill Repos table below and update `.gitignore`.
 
 ---
 
-## SEO / LLM Skills Pack
+## Included Skills
+
+### SEO / LLM Skills Pack
 
 **Source:** Navneet Kaushal (LinkedIn) — [The SEO/LLM Skills Pack for Claude](https://www.notion.so/cliffp/The-SEO-LLM-Skills-Pack-for-Claude-314de8642be880209feaebf4d2c387b9)
 
@@ -69,7 +74,7 @@ Then add a row to the External Skill Repos table below and update `.gitignore`.
 | `seo-content-brief-writer` | Generates writer-ready content briefs |
 | `seo-ai-search-visibility-checker` | Scores AEO readiness / machine readability |
 
-## Competitor SWOT & Content Brief
+### Competitor SWOT & Content Brief
 
 **Source:** Charles Floate — [LinkedIn post](https://www.linkedin.com/feed/update/urn:li:activity:7433889125281488896/) — reverse-engineer SERP competitors to build consensus-based content briefs in 10 minutes
 
@@ -77,7 +82,7 @@ Then add a row to the External Skill Repos table below and update `.gitignore`.
 |-------|-------------|
 | `seo-competitor-swot` | Fetches up to 5 competitor URLs, builds entity map, topic map, per-page S&W, 5 missing FAQs, missing asset recommendations, and writer-ready brief with executive summary |
 
-## Navneet 100-Day AI SEO Plan — Extracted Skills
+### Navneet 100-Day AI SEO Plan — Extracted Skills
 
 **Source:** Navneet Kaushal — [100 Day AI SEO Domination Plan (LinkedIn)](https://www.linkedin.com/feed/update/urn:li:activity:7429740222533488640/) + PDF checklist
 
@@ -90,9 +95,7 @@ Then add a row to the External Skill Repos table below and update `.gitignore`.
 
 ## External Skill Repos
 
-External repos are cloned as subdirectories and symlinked to root level for Claude Code discovery.
-The `sync-external.sh` script auto-detects any subdirectory containing skills and creates prefixed symlinks.
-External repo directories are git-ignored; the symlinks themselves are committed.
+External repos are cloned as subdirectories. Each contains skills that your AI agent auto-discovers.
 
 | Directory | Source | Skills |
 |-----------|--------|--------|
@@ -116,8 +119,11 @@ Repos considered but skipped — reasons documented to avoid re-evaluating.
 | [jthack/ffuf_claude_skill](https://github.com/jthack/ffuf_claude_skill) | Security/pentesting tool (web fuzzing); not relevant |
 | [Shpigford/skills](https://github.com/Shpigford/skills) | Rails-specific (new-rails-project, conductor-setup); low stars (68) |
 
+## Multi-IDE Sync
+
+To share these skills across Claude, Cursor, Windsurf, Qoder, Codex, and Antigravity simultaneously — with a single folder and immutable symlinks — see **[Agnostic AI Agent Sync](https://github.com/cliffordp/agnostic-ai-agent-sync)**.
+
 ## Notes
 
-- Skills must live at root as `<skill-name>/SKILL.md` for Claude Code to discover them
+- Skills use the [`SKILL.md` format](https://docs.anthropic.com/en/docs/claude-code/skills) and must live at root as `<skill-name>/SKILL.md` for AI agents to discover them
 - Only skill descriptions (not full content) load per session — installing all skills from a library is fine
-- Symlinked: `~/.claude/skills` (Claude's default) → `~/.claude/_skills` (our managed location)
