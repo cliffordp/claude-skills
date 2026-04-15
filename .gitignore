@@ -1,16 +1,6 @@
-# Ignore everything by default
-*
-
-# Un-ignore repo files
-!.gitignore
-!README.md
-!sync-external.sh
-
-# Un-ignore our own skill directories (need both dir and contents)
-!seo-*/
-!seo-*/**
-
-# OS / editor files (belt-and-suspenders — already caught by *)
 .DS_Store
 Thumbs.db
 Desktop.ini
+ehthumbs.db
+*.swp
+*~

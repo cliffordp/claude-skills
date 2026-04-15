@@ -4,6 +4,8 @@ A curated collection of AI agent skills using the [`SKILL.md` format](https://do
 
 ## Quick Start
 
+Clone this repo and any external skill repos as siblings inside your Hub's `skills/` directory (or `~/.claude/skills/` if using Claude alone):
+
 ```bash
 cd ~/.claude/skills/
 git clone https://github.com/cliffordp/claude-skills
@@ -15,11 +17,10 @@ That's it — Claude discovers them automatically on your next session.
 
 ## Installing External Skill Repos
 
-Clone any of the repos below into the same parent directory:
+Clone these as **siblings** alongside `claude-skills/` — not inside it:
 
 ```bash
-# cd into your IDE's skills directory (e.g. ~/.claude/skills/)
-
+# From the same parent directory (your Hub's skills/ or ~/.claude/skills/)
 git clone https://github.com/AgriciDaniel/claude-ads
 git clone https://github.com/AgriciDaniel/claude-seo
 git clone https://github.com/cloudflare/skills cloudflare
@@ -29,29 +30,27 @@ git clone https://github.com/coreyhaines31/marketingskills
 git clone https://github.com/WordPress/agent-skills wordpress
 ```
 
-### Updating external skill repos
+Each repo is an independent `git clone` — update or remove any of them without affecting the others.
+
+### Updating
 
 ```bash
-# Update all
-git -C claude-ads pull
-git -C claude-seo pull
+# From your skills directory
+git -C claude-skills pull
 git -C cloudflare pull
 git -C composio pull
-git -C founder-skills pull
-git -C marketingskills pull
-git -C wordpress pull
-
-# Or update one
-git -C <name> pull
+# etc.
 ```
 
-### Adding a new external skill repo
+### Adding a new skill repo
 
 ```bash
 git clone <url> <name>
 ```
 
-Then add a row to the External Skill Repos table below and update `.gitignore`.
+Since each repo is a standalone clone, there's nothing else to configure.
+
+> **Not using [Agnostic AI Agent Sync](https://github.com/cliffordp/agnostic-ai-agent-sync)?** If you clone external repos directly inside `~/.claude/skills/`, they'll work fine — but they'll be mixed in with this repo's files on disk. This can make `git status` noisy and requires `.gitignore` maintenance. The Hub approach keeps every repo cleanly separated as independent sibling directories.
 
 ---
 
@@ -95,7 +94,7 @@ Then add a row to the External Skill Repos table below and update `.gitignore`.
 
 ## External Skill Repos
 
-External repos are cloned as subdirectories. Each contains skills that your AI agent auto-discovers.
+Recommended repos to clone as siblings. Each is independent — install, update, or remove without affecting anything else.
 
 | Directory | Source | Skills |
 |-----------|--------|--------|
@@ -121,9 +120,10 @@ Repos considered but skipped — reasons documented to avoid re-evaluating.
 
 ## Multi-IDE Sync
 
-To share these skills across Claude, Cursor, Windsurf, Qoder, Codex, and Antigravity simultaneously — with a single folder and immutable symlinks — see **[Agnostic AI Agent Sync](https://github.com/cliffordp/agnostic-ai-agent-sync)**.
+To share these skills across Claude, Cursor, Windsurf, Qoder, Codex, and Antigravity simultaneously — with a single folder and immutable symlinks — see **[Agnostic AI Agent Sync](https://github.com/cliffordp/agnostic-ai-agent-sync)**. It also keeps your skills directory clean: each skill repo is an independent sibling clone, so no repo pollutes another's git state.
 
 ## Notes
 
 - Skills use the [`SKILL.md` format](https://docs.anthropic.com/en/docs/claude-code/skills) and must live at root as `<skill-name>/SKILL.md` for AI agents to discover them
 - Only skill descriptions (not full content) load per session — installing all skills from a library is fine
+- `sync-external.sh` is included for legacy use — it flattens nested skill repos that have skills inside a `skills/` subdirectory. Not needed if you clone repos as siblings in a Hub.
