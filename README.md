@@ -106,6 +106,17 @@ Recommended repos to clone as siblings. Each is independent — install, update,
 | `marketingskills/` | https://github.com/coreyhaines31/marketingskills | 32 |
 | `wordpress/` | https://github.com/WordPress/agent-skills | 13 |
 
+### Deeply Nested Repos (Claude Code Only)
+
+Some amazing skill repositories use a deeply nested folder structure. These cannot easily be cloned natively into a universal `skills/` directory without manual extraction. 
+
+If you are strictly using Claude Code (and do not care about multi-IDE syncing via Agnostic Hub), you can install them via Claude's proprietary plugin command:
+
+```bash
+/plugin marketplace add aaron-he-zhu/seo-geo-claude-skills
+```
+*(Note: Because this bypasses the standard `skills/` directory layout, these skills will not sync to Cursor or Gemini.)*
+
 ## Evaluated, Not Installed
 
 Repos considered but skipped — reasons documented to avoid re-evaluating.
